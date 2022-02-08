@@ -15,6 +15,7 @@ type User struct {
 func main() {
 	e := echo.New()
 	e.GET("/user", show)
+	e.POST("/user", show)
 	e.GET("/mes/:id", mes)
 	// e.POST("/users", display)
 
