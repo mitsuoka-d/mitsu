@@ -1,4 +1,6 @@
-version: '3'
+version: '3.8'
+volumes:
+  db-store:
 services:
   app:
     build: .
@@ -7,3 +9,30 @@ services:
     command: /bin/bash
     volumes:
       - .:/go/src/work
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=${DB_NAME:-go_local}
+      - DB_USERNAME=${DB_USER:-mitsu}
+      - DB_PASSWORD=${DB_PASS:-secret}
+  db:
+    build:
+      context: .
+      dockerfile: ./mysql/Dockerfile
+    ports:
+      - target: 3306
+        published: ${DB_PORT:-3306}
+        protocol: tcp
+        mode: host
+    volumes:
+      - type: volume
+        source: db-store
+        target: /var/lib/mysql
+        volume:
+          nocopy: true
+    environment:
+      - MYSQL_DATABASE=${DB_NAME:-go_local}
+      - MYSQL_USER=${DB_USER:-mitsu}
+      - MYSQL_PASSWORD=${DB_PASS:-secret}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS:-secret}
