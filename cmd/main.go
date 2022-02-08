@@ -37,8 +37,8 @@ func show(c echo.Context) error {
 }
 
 func test(arg1, arg2 string) string {
-	const xen = "aaaa"
-	var arr = [...]string{"a", "b"}
+	const xen = "xenTest"
+	var arr = [...]string{"アイウエオ", "b"}
 
 	for key, value := range arr {
 		fmt.Println(key, value)
