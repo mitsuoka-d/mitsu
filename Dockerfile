@@ -4,7 +4,7 @@ RUN apt update \
   && apt install -y vim
 
 ENV GO111MODULE on
-WORKDIR /go/src/work
+WORKDIR /var/www
 
 # install go tools
 RUN go get github.com/uudashr/gopkgs/v2/cmd/gopkgs \

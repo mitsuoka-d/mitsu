@@ -8,7 +8,7 @@ services:
     stdin_open: true
     command: /bin/bash
     volumes:
-      - .:/go/src/work
+      - .:/var/www
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=db

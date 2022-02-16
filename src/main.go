@@ -1,7 +1,7 @@
 package main
 
 import (
-	"work/src/router"
+	"www/src/router"
 )
 
 func main() {

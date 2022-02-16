@@ -3,7 +3,7 @@ package controller
 import (
 	"net/http"
 	"strconv"
-	"work/src/model"
+	"www/src/model"
 
 	"github.com/labstack/echo"
 )

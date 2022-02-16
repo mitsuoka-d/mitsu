@@ -1,4 +1,4 @@
-module work
+module www
 
 go 1.15
 
